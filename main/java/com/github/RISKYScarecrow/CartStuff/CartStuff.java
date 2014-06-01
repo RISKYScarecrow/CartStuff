@@ -31,7 +31,7 @@ public class CartStuff {
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
-		spokes = new Spokes().setCreativeTab(CreativeTabs.tabTools).setUnlocalizedName("Spokes");
+		spokes = new Spokes();
 		ItemDeclaration.addItems(spokes);
 		Recipes.addItemRecipes(spokes);
 
