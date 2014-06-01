@@ -1,32 +1,29 @@
 package com.github.RISKYScarecrow.CartStuff.Initalisation;
 
-import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.github.RISKYScarecrow.CartStuff.Items.Spokes;
+import com.github.RISKYScarecrow.CartStuff.modItems.Spokes;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public final class Recipes {
 
-
 	private Recipes() {
 	}
 
 	public static void add() {
-		addBlockRecipes();
+		// addItemRecipes();
 	}
-	
-	public static void addBlockRecipes()
-	{
-		Spokes spokes = new Spokes();
-		ItemStack spokeStack = new ItemStack(spokes);
-		GameRegistry.addShapedRecipe(spokeStack,
-				"///",
-				"/o/",
-				"///",
-				'/', Item.getItemById(280),
-				'o', Block.getBlockById(5));
+
+	public static void addItemRecipes(Item s) {
+
+		// Spokes
+		ItemStack spokeStack = new ItemStack(s);
+		GameRegistry.addShapedRecipe(spokeStack, new Object[] { "///", "/o/",
+				"///", '/', Items.stick, 'o', Blocks.planks });
 	}
+
 }
