@@ -5,7 +5,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import com.github.RISKYScarecrow.CartStuff.Initalisation.ItemDeclaration;
+import com.github.RISKYScarecrow.CartStuff.Initalisation.Initalisation;
 import com.github.RISKYScarecrow.CartStuff.Initalisation.Recipes;
 import com.github.RISKYScarecrow.CartStuff.modItems.Spokes;
 
@@ -17,23 +17,26 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 @Mod(modid = CartStuff.MODID, version = CartStuff.VERSION)
+
 public class CartStuff {
 
 	public static final String MODID = "CartStuff";
 	public static final String VERSION = "1.0.1";
 
+	public static Item spokes;
+	
 	// @SidedProxy(clientSide =
 	// "com.github.RISKYScarecrow.CartStuff.Proxy.ClientProxy", serverSide =
 	// "com.github.RISKYScarecrow.CartStuff.Proxy.CommonProxy")
 	// public static CommonProxy proxy;
 
-	public static Item spokes;
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
+		
+		//Initalisation.initalise();
 		spokes = new Spokes();
-		ItemDeclaration.addItems(spokes);
-		Recipes.addItemRecipes(spokes);
+		Initalisation.addSpokes(spokes);
 
 	}
 

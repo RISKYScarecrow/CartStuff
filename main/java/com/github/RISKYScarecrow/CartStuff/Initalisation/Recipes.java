@@ -21,9 +21,7 @@ public final class Recipes {
 	public static void addItemRecipes(Item s) {
 
 		// Spokes
-		ItemStack spokeStack = new ItemStack(s);
-		GameRegistry.addShapedRecipe(spokeStack, new Object[] { "///", "/o/",
-				"///", '/', Items.stick, 'o', Blocks.planks });
+		
 	}
 
 }
