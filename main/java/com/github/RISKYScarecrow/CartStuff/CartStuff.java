@@ -24,6 +24,7 @@ public class CartStuff {
 	public static final String VERSION = "1.0.1";
 
 	public static Item spokes;
+	public static Item wheels;
 	
 	// @SidedProxy(clientSide =
 	// "com.github.RISKYScarecrow.CartStuff.Proxy.ClientProxy", serverSide =
@@ -38,6 +39,8 @@ public class CartStuff {
 		spokes = new Spokes();
 		Initalisation.addSpokes(spokes);
 
+		wheels = new Wheels();
+		Initalisation.addWheel(wheel);
 	}
 
 	@EventHandler

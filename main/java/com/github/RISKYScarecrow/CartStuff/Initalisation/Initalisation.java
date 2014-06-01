@@ -11,26 +11,25 @@ import cpw.mods.fml.common.registry.GameRegistry;
 
 public class Initalisation
 {
-	
-	
 	private Initalisation()
 	{
 	}
-	
-	
+
 	public static void addSpokes(Item i)
 	{
-			GameRegistry.registerItem(i, i.getUnlocalizedName());
-		
+		GameRegistry.registerItem(i, i.getUnlocalizedName());
+
 		ItemStack spokeStack = new ItemStack(i);
 		GameRegistry.addShapedRecipe(spokeStack, new Object[] { "///", "/o/",
 				"///", '/', Items.stick, 'o', Blocks.planks });
 	}
+
 	public static void addWheel(Item i)
 	{
 		GameRegistry.registerItem(i, i.getUnlocalizedName());
-		
+
 		ItemStack spokeStack = new ItemStack(i);
 		GameRegistry.addShapedRecipe(spokeStack, new Object[] { "/ /", " o ",
-				"/ /", '/', Blocks.planks, 'o', CartStuff.spokes });}
+				"/ /", '/', Blocks.planks, 'o', CartStuff.spokes });
+	}
 }
