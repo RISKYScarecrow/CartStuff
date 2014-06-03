@@ -1,13 +1,15 @@
 package com.github.RISKYScarecrow.CartStuff.modItems;
 
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 
 public class Wheel extends Item 
 {
 	public Wheel()
 	{
-		setMaxStackSize(4);
-		//setCreativeTab(CreativeTabs.tabMisc);
+		setMaxStackSize(1);
+		setCreativeTab(CreativeTabs.tabTools);
 		setUnlocalizedName("Wheel");
+		setTextureName("CartStuff:wheelTexture");
 	}
 }
