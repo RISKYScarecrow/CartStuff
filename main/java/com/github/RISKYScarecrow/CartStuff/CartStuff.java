@@ -28,7 +28,6 @@ public class CartStuff
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event)
 	{
-
 		Initalisation.initalise();
 	}
 
