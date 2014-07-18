@@ -4,6 +4,7 @@ import net.minecraft.item.Item;
 
 import com.github.RISKYScarecrow.CartStuff.Initalisation.Initalisation;
 import com.github.RISKYScarecrow.CartStuff.Proxy.CommonProxy;
+import com.github.RISKYScarecrow.CartStuff.modEntity.EntityHorseCart;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -11,6 +12,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.EntityRegistry;
 
 @Mod(modid = CartStuff.MODID, version = CartStuff.VERSION)
 public class CartStuff
@@ -29,6 +31,7 @@ public class CartStuff
 	public void preInit(FMLPreInitializationEvent event)
 	{
 		Initalisation.initalise();
+		EntityRegistry.registerModEntity(EntityHorseCart.class, "Cart", 1, this, 80, 3, true);
 	}
 
 	@EventHandler

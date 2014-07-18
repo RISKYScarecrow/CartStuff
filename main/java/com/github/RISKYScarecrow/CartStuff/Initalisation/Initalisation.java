@@ -39,5 +39,6 @@ public class Initalisation
 		ItemStack spokeStack = new ItemStack(CartStuff.wheel);
 		GameRegistry.addShapedRecipe(spokeStack, new Object[] { "/ /", " o ",
 				"/ /", '/', Blocks.planks, 'o', CartStuff.spokes });
+		GameRegistry.addShapedRecipe(spokeStack, new Object[] { "/  ", '/', Items.stick});
 	}
 }
