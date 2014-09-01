@@ -34,19 +34,10 @@ public class TileEntityCrateRenderer extends TileEntitySpecialRenderer
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale)
 	{
-		// The PushMatrix tells the renderer to "start" doing something.
 		GL11.glPushMatrix();
-		// This is setting the initial location.
 		GL11.glTranslatef((float) x + 1.0F - 0.0625F, (float) y + 1.0F - 0.6875F/2 + 0.0625F/8, (float) z + 0.0625F);
 		GL11.glScaled(0.125, 0.125, 0.125);
-		// This is the texture of your block. It's pathed to be the same place
-		// as your other blocks here.
-		// Outdated
-		// bindTextureByName("/mods/roads/textures/blocks/TrafficLightPoleRed.png");
-		// Use in 1.6.2 this
 		ResourceLocation textures = (new ResourceLocation("cartstuff","textures/blocks/crate.png"));
-		// the ':' is very important
-		// binding the textures
 		Minecraft.getMinecraft().renderEngine.bindTexture(textures);
 
 		// This rotation part is very important! Without it, your model will

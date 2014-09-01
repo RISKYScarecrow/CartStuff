@@ -2,10 +2,10 @@ package com.github.RISKYScarecrow.CartStuff;
 
 import net.minecraft.block.Block;
 
-import com.github.RISKYScarecrow.CartStuff.Crate.TileEntityCrateEntity;
 import com.github.RISKYScarecrow.CartStuff.Initalisation.Initalisation;
 import com.github.RISKYScarecrow.CartStuff.Proxy.ClientProxy;
 import com.github.RISKYScarecrow.CartStuff.Proxy.CommonProxy;
+import com.github.RISKYScarecrow.CartStuff.SkellyHelper.EntitySkellyHelper;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -13,7 +13,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 
 @Mod(modid = CartStuff.MODID, version = CartStuff.VERSION)
 public class CartStuff
@@ -35,9 +35,10 @@ public class CartStuff
 
 	@EventHandler
 	public void init(FMLInitializationEvent event)
-	{
+	{	
+		EntityRegistry.registerGlobalEntityID(EntitySkellyHelper.class, "EntitySkellyHelper", EntityRegistry.findGlobalUniqueEntityId());
+		
 		ClientProxy.registerRenderThings();
-        GameRegistry.registerTileEntity(TileEntityCrateEntity.class, "tileEntityCrate");
 	}
 
 	@EventHandler
