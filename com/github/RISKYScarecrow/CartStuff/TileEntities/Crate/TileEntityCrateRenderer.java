@@ -1,4 +1,4 @@
-package com.github.RISKYScarecrow.CartStuff.Crate;
+package com.github.RISKYScarecrow.CartStuff.TileEntities.Crate;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -12,6 +12,10 @@ import net.minecraft.world.World;
 
 import org.lwjgl.opengl.GL11;
 
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+
+@SideOnly(Side.CLIENT)
 public class TileEntityCrateRenderer extends TileEntitySpecialRenderer
 {
 
@@ -26,27 +30,46 @@ public class TileEntityCrateRenderer extends TileEntitySpecialRenderer
 	private void adjustRotatePivotViaMeta(World world, int x, int y, int z)
 	{
 		int meta = world.getBlockMetadata(x, y, z);
-		GL11.glPushMatrix();
 		GL11.glRotatef(meta * (-90), 0.0F, 0.0F, 1.0F);
-		GL11.glPopMatrix();
 	}
 
 	@Override
 	public void renderTileEntityAt(TileEntity te, double x, double y, double z, float scale)
 	{
+
 		GL11.glPushMatrix();
-		GL11.glTranslatef((float) x + 1.0F - 0.0625F, (float) y + 1.0F - 0.6875F/2 + 0.0625F/8, (float) z + 0.0625F);
+		GL11.glTranslatef((float) x + 1.0F - 0.0625F, (float) y + 1.0F - 0.6875F / 2 + 0.0625F / 8, (float) z + 0.0625F);
 		GL11.glScaled(0.125, 0.125, 0.125);
-		ResourceLocation textures = (new ResourceLocation("cartstuff","textures/blocks/crate.png"));
+		ResourceLocation textures = (new ResourceLocation("cartstuff", "textures/blocks/crate.png"));
 		Minecraft.getMinecraft().renderEngine.bindTexture(textures);
 
+		GL11.glPushMatrix();
+		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
 		// This rotation part is very important! Without it, your model will
 		// render upside-down! And for some reason you DO need PushMatrix again!
 		GL11.glPushMatrix();
-		GL11.glRotatef(180F, 0.0F, 0.0F, 1.0F);
+		GL11.glTranslatef(0.5F, 0F, 0.5F);
+		GL11.glRotatef(te.blockMetadata * (-90), 0.0F, 1.0F, 0.0F);
+		GL11.glTranslatef(-0.5F, 0F, -0.5F);
 		// A reference to your Model file. Again, very important.
-		this.model.render((Entity) null, 0.0F, 0.0F, -0.1F, 0.0F, 0.0F, 0.0625F);
+		switch (te.blockMetadata)
+		{
+		case 0:
+			break;
+		case 1:
+			GL11.glTranslatef(1.0F, 0F, 0.0F);
+			break;
+		case 2:
+			GL11.glTranslatef(1.0F, 0F, 1.0F);
+			break;
+		case 3:
+			GL11.glTranslatef(0.0F, 0F, 1.0F);
+			break;
+		}
+
+		this.model.render((Entity) null, 0.0F, -0.1F, 0.0F, 0.0F, 0.0F, 0.0625F);
 		// Tell it to stop rendering for both the PushMatrix's
+		GL11.glPopMatrix();
 		GL11.glPopMatrix();
 		GL11.glPopMatrix();
 	}

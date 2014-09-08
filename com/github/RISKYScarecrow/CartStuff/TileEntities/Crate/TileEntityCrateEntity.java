@@ -1,4 +1,4 @@
-package com.github.RISKYScarecrow.CartStuff.Crate;
+package com.github.RISKYScarecrow.CartStuff.TileEntities.Crate;
 
 import net.minecraft.tileentity.TileEntity;
 

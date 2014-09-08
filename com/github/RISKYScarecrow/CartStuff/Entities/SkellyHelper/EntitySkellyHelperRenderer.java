@@ -1,4 +1,4 @@
-package com.github.RISKYScarecrow.CartStuff.SkellyHelper;
+package com.github.RISKYScarecrow.CartStuff.Entities.SkellyHelper;
 
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -10,7 +10,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class EntitySkellyHelperRenderer extends RenderLiving
 {
-    private static final ResourceLocation Your_Texture = new ResourceLocation("yourmod:textures/entity/yourtexture.png");  //refers to:assets/yourmod/textures/entity/yourtexture.png
+    private static final ResourceLocation texture = new ResourceLocation("cartstuff:textures/entity/entityskellyhelper.png");  //refers to:assets/yourmod/textures/entity/yourtexture.png
 
     public EntitySkellyHelperRenderer(ModelBase par1ModelBase, float par2)
     {
@@ -20,6 +20,6 @@ public class EntitySkellyHelperRenderer extends RenderLiving
     @Override
     protected ResourceLocation getEntityTexture(Entity par1Entity)
     {
-        return Your_Texture;
+        return texture;
     }
 }

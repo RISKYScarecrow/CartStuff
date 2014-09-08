@@ -1,4 +1,4 @@
-package com.github.RISKYScarecrow.CartStuff.SkellyHelper;
+package com.github.RISKYScarecrow.CartStuff.Entities.SkellyHelper;
 
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;

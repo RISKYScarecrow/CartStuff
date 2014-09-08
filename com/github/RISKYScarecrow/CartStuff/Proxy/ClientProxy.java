@@ -1,10 +1,10 @@
 package com.github.RISKYScarecrow.CartStuff.Proxy;
 
-import com.github.RISKYScarecrow.CartStuff.Crate.ModelCrateClosed;
-import com.github.RISKYScarecrow.CartStuff.Crate.TileEntityCrateEntity;
-import com.github.RISKYScarecrow.CartStuff.Crate.TileEntityCrateRenderer;
-import com.github.RISKYScarecrow.CartStuff.SkellyHelper.EntitySkellyHelper;
-import com.github.RISKYScarecrow.CartStuff.SkellyHelper.EntitySkellyHelperRenderer;
+import com.github.RISKYScarecrow.CartStuff.Entities.SkellyHelper.EntitySkellyHelper;
+import com.github.RISKYScarecrow.CartStuff.Entities.SkellyHelper.EntitySkellyHelperRenderer;
+import com.github.RISKYScarecrow.CartStuff.Entities.SkellyHelper.ModelEntitySkellyHelper;
+import com.github.RISKYScarecrow.CartStuff.TileEntities.Crate.TileEntityCrateEntity;
+import com.github.RISKYScarecrow.CartStuff.TileEntities.Crate.TileEntityCrateRenderer;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -17,7 +17,7 @@ public class ClientProxy extends CommonProxy
 		ClientRegistry.bindTileEntitySpecialRenderer(TileEntityCrateEntity.class, new TileEntityCrateRenderer());
 		GameRegistry.registerTileEntity(TileEntityCrateEntity.class, "tileEntityCrate");
 		
-		RenderingRegistry.registerEntityRenderingHandler(EntitySkellyHelper.class, new EntitySkellyHelperRenderer(new ModelCrateClosed(), 0.5F));
+		RenderingRegistry.registerEntityRenderingHandler(EntitySkellyHelper.class, new EntitySkellyHelperRenderer(new ModelEntitySkellyHelper(), 0.5F));
 	}
 
 }
